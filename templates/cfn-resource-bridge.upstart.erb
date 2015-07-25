@@ -1,0 +1,15 @@
+# CloudFormation custom resource bridge
+description "CloudFormation Resource Bridge"
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on runlevel [06]
+
+env DAEMON=<%= scope.lookupvar('cfn_resource_bridge::bin_dir') %>/cfn-resource-bridge
+env CONFIG=<%= scope.lookupvar('cfn_resource_bridge::config_dir') %>
+
+script
+    exec $DAEMON --verbose -c $CONFIG
+end script
+
+respawn
+respawn limit 10 10
+kill timeout 10

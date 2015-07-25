@@ -1,0 +1,14 @@
+[<%= @name %>]
+queue_url = <%= @queue_url %>
+resource_type = <%= @resource_type %>
+<% if @default_action %>default_action = <%= @default_action %><% end %>
+<% if @create_action %>create_action = <%= @create_action %><% end %>
+<% if @delete_action %>delete_action = <%= @delete_action %><% end %>
+<% if @update_action %>update_action = <%= @update_action %><% end %>
+<% if @timeout %>timeout = <%= @timeout %><% end %>
+<% if @create_timeout %>create_timeout = <%= @create_timeout %><% end %>
+<% if @delete_timeout %>delete_timeout = <%= @delete_timeout %><% end %>
+<% if @update_timeout %>update_timeout = <%= @update_timeout %><% end %>
+flatten = <%= @flatten %>
+<% if @service_token %>service_token = <%= @service_token %><% end %>
+<% if @region %>region = <%= @region %><% end %>
