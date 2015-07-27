@@ -1,3 +1,4 @@
+[![Puppet Forge](http://img.shields.io/puppetforge/v/jsok/cfn_resource_bridge.svg)](https://forge.puppetlabs.com/jsok/cfn_resource_bridge)
 [![Build Status](https://travis-ci.org/jsok/puppet-cfn-resource-bridge.svg?branch=master)](https://travis-ci.org/jsok/puppet-cfn-resource-bridge)
 
 # puppet-cfn-resource-bridge
