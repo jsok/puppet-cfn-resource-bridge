@@ -2,4 +2,4 @@ fixtures:
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
-    module: "#{source_dir}"
+    cfn_resource_bridge: "#{source_dir}"
