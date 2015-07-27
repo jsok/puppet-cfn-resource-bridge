@@ -1,5 +1,5 @@
 {
-  "name": "cfn-resource-bridge",
+  "name": "jsok-cfn_resource_bridge",
   "version": "0.1.0",
   "author": "jsok",
   "summary": "Puppet module to manage AWS aws-cfn-resource-bridge",
