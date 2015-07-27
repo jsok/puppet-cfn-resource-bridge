@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jsok/puppet-cfn-resource-bridge.svg?branch=master)](https://travis-ci.org/jsok/puppet-cfn-resource-bridge)
+
 # puppet-cfn-resource-bridge
 
 Puppet module to manage AWS
