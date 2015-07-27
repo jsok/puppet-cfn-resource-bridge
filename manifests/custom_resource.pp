@@ -66,17 +66,33 @@ define cfn_resource_bridge::custom_resource (
   $service_token  = undef,
   $region         = undef,
 ) {
+  include cfn_resource_bridge
+
   validate_string($queue_url)
   validate_string($resource_type)
-  validate_integer($timeout)
   validate_bool($flatten)
 
   if $default_action {
+    # Specific actions can be overriden
     validate_absolute_path($default_action)
+    if $create_action {
+      validate_absolute_path($create_action)
+    }
+    if $delete_action {
+      validate_absolute_path($delete_action)
+    }
+    if $update_action {
+      validate_absolute_path($update_action)
+    }
   } else {
+    # If a default action is not defined, all other actions must be defined
     validate_absolute_path($create_action)
     validate_absolute_path($delete_action)
     validate_absolute_path($update_action)
+  }
+
+  if $timeout {
+    validate_integer($timeout)
   }
 
   file { "${::cfn_resource_bridge::bridge_dir}/${name}.conf":

@@ -44,4 +44,18 @@ describe 'cfn_resource_bridge' do
     it { is_expected.to contain_file('/etc/custom').with_ensure('directory') }
     it { is_expected.to contain_file('/etc/custom/bridge.d').with_ensure('directory') }
   end
+
+  context "cfn_resource_bridge with custom_resources" do
+    let(:params) {{
+      'custom_resources' => {
+        'my_resource' => {
+          'resource_type' => 'Custom::MyResource',
+          'queue_url' => 'https://queueurl',
+          'default_action' => '/path/to/action',
+        }
+      }
+    }}
+    it { is_expected.to contain_cfn_resource_bridge__custom_resource('my_resource') }
+    it { is_expected.to have_cfn_resource_bridge__custom_resource_resource_count('1') }
+  end
 end
